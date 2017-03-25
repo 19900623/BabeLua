@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <Choose>
     <When Condition=" '$(VisualStudioVersion)'=='11.0'  Or '$(TargetVisualStudioVersion)'=='VS110' ">
       <PropertyGroup>
@@ -45,6 +45,29 @@
     <StartArguments>/rootSuffix Exp /Log</StartArguments>
     <DefineConstants>$(DefineConstants);$(SignedSym)</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -255,7 +278,7 @@
     <Compile Include="Package\UnhandledExceptionCatcher.cs" />
     <Compile Include="Package\WindowFrameSink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources1.Designer.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -268,6 +291,11 @@
     <Compile Include="Editor\FindWordFormatDefination.cs" />
     <Compile Include="Editor\FindWordTag.cs" />
     <Compile Include="Editor\FindWordTagger.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ToolWindows\BoolVisibilityConventer.cs" />
     <Compile Include="ToolWindows\Controls.cs" />
     <Compile Include="ToolWindows\FolderWindow.xaml.cs">
@@ -358,7 +386,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Solution.png" />
     <Content Include="Templates\Projects\LuaProject\LuaProject.luaproj">
@@ -466,17 +494,11 @@
     <Compile Include="LuaTools\LuaClassifierProvider.cs" />
     <Compile Include="LuaTools\LuaCoreConstants.cs" />
     <Compile Include="LuaTools\LuaPredefinedClassificationTypeNames.cs" />
-    <Compile Include="Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <Visible>true</Visible>
-    </Compile>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
       <MergeWithCTO>true</MergeWithCTO>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -540,6 +562,13 @@
       <Name>Irony</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <PropertyGroup>
     <!--
     To specify a different registry root to register your package, uncomment the TargetRegistryRoot
@@ -552,6 +581,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DefineConstants>TRACE;DEBUG;DEV11;DEV11_OR_LATER;VER_INNER;</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
@@ -568,6 +598,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>

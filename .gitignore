@@ -1,0 +1,11 @@
+.vs
+
+*.suo
+
+obj
+bin
+
+*.VC.db
+
+*.csproj.user
+*.opendb
